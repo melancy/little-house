@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<link rel="stylesheet" type="text/css"  href="hp.css"/>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script>
+<script type="text/javascript" src="js/jquery.touchSlider.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	$(".main_visual").hover(function(){
+		$("#btn_prev,#btn_next").fadeIn()
+		},function(){
+		$("#btn_prev,#btn_next").fadeOut()
+		})
+	$dragBln = false;
+	$(".main_image").touchSlider({
+		flexible : true,
+		speed :800,
+		btn_prev : $("#btn_prev"),
+		btn_next : $("#btn_next"),
+		paging : $(".flicking_con a"),
+		counter : function (e) {
+			$(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
+		}
+	});
+	$(".main_image").bind("mousedown", function() {
+		$dragBln = false;
+	})
+	$(".main_image").bind("dragstart", function() {
+		$dragBln = true;
+	})
+	$(".main_image a").click(function() {
+		if($dragBln) {
+			return false;
+		}
+	})
+	timer = setInterval(function() { $("#btn_next").click();}, 2000);
+	$(".main_visual").hover(function() {
+		clearInterval(timer);
+	}, function() {
+		timer = setInterval(function() { $("#btn_next").click();}, 2000);
+	})
+	$(".main_image").bind("touchstart", function() {
+		clearInterval(timer);
+	}).bind("touchend", function() {
+		timer = setInterval(function() { $("#btn_next").click();}, 2000);
+	})
+});
+$(document).ready(function() {
+	jQuery.jqtab = function(tabtit,tab_conbox,shijian) {
+		$(tab_conbox).find("li").hide();
+		$(tabtit).find("li:first").addClass("thistab").show(); 
+		$(tab_conbox).find("li:first").show();
+	
+		$(tabtit).find("li").bind(shijian,function(){
+		  $(this).addClass("thistab").siblings("li").removeClass("thistab"); 
+			var activeindex = $(tabtit).find("li").index(this);
+			$(tab_conbox).children().eq(activeindex).show().siblings().hide();
+			return false;
+		});
+	
+	};
+	$.jqtab("#tabs2","#tab_conbox2","click");	
+	/*鼠标经过切换把click改成mouseenter*/
+});
+</script>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>首页</title>
+</head>
+
+<body>
+<div id="PH">
+<div id="ph1">
+<div id="dl00">您好！欢迎光临传化物流</div>
+<div id="dl01">
+<a href="http://www.w3school.com.cn/">登陆</a>
+</div>
+<div id="dl02"></div>
+<div id="dl03">
+<a href="http://www.w3school.com.cn/">免费注册</a>
+</div>
+<div id="dl04">
+<a href="http://www.w3school.com.cn/">我的金融</a>
+</div>
+<div id="dl05">
+<div id="nav"> 
+<ul> 
+ <li><a href="http://www.w3school.com.cn/">网站导航<img src="img/lil-tri.jpg" width="9" height="5" alt=""/></a>
+   <ul>
+    <li ><a href="http://www.w3school.com.cn/">001</a></li>
+    <li><a href="http://www.w3school.com.cn/">002</a></li>
+    <li><a href="http://www.w3school.com.cn/">003</a></li>
+   </ul>
+ </li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="navigation1">
+<div id="navigation">
+<div id="logo">
+<a href="http://www.w3school.com.cn/" ><img src="img/001.jpg" alt=""/></a>
+</div>
+<ul>
+<li class="name1"><a href="http://www.w3school.com.cn/">首页</a></li>
+<li class="name2">HOME</li>
+</ul>
+<ul>
+<li class="name1"><a href="http://www.w3school.com.cn/">贷款</a></li>
+<li class="name2">LOAN</li>
+</ul>
+<ul>
+<li class="name1"><a href="http://www.w3school.com.cn/">保险</a></li>
+<li class="name2">INSURANCE</li>
+</ul>
+<ul>
+<li class="name1"><a href="http://www.w3school.com.cn/">保理</a></li>
+<li class="name2">FACTORING</li>
+</ul>
+<ul>
+<li class="name1"><a href="http://www.w3school.com.cn/">供应链</a></li>
+<li class="name2">SUPPLY</li>
+</ul>
+</div>
+</div>
+<div id="lefthang">
+<div id="wz">金融产品分类
+</div>
+<div id="T1"><a href="http://www.w3school.com.cn/">贷款</a></div>
+<div id="T2">
+<div id="t1"><a href="http://www.w3school.com.cn/">微利宝</a></div>
+<div id="t2"><a href="http://www.w3school.com.cn/">分期融</a></div>
+<div id="t3"><a href="http://www.w3school.com.cn/">物流贷</a></div>
+<div id="t4"><a href="http://www.w3school.com.cn/">更多</a></div>
+</div>
+<div id="T3"><a href="http://www.w3school.com.cn/">保险</a></div>
+<div id="T4">
+<div id="t5"><a href="http://www.w3school.com.cn/">货运险</a></div>
+<div id="t6"><a href="http://www.w3school.com.cn/">意外险</a></div>
+<div id="t7"><a href="http://www.w3school.com.cn/">财产险</a></div>
+</div>
+<div id="T5"><a href="http://www.w3school.com.cn/">保理</a></div>
+<div id="t8"><a href="http://www.w3school.com.cn/">保理</a></div>
+</div>
+<div class="main_visual">
+<div class="flicking_con">
+<div class="flicking_inner">
+<a href="#">&nbsp</a>
+<a href="#">&nbsp</a>
+<a href="#">&nbsp</a>
+</div></div>
+<div class="main_image">
+<ul>
+  <li><a href="#" target="_blank"><img src="img/002.jpg"></a></li>
+  <li><a href="#" target="_blank"><img src="img/002.jpg"></a></li>
+  <li><a href="#" target="_blank"><img src="img/002.jpg"></a></li>
+</ul>
+  <a id="btn_prev" href="javascript:;"></a>
+<a id="btn_next" href="javascript:;"></a>
+</div>
+</div>
+<div id="Item">
+<div id="item1">
+<ul>
+<li class="name01">微利宝</li>
+</ul>
+<div id="Name1">
+<ul>
+<li class="name02">贷款利息低</li>
+<li class="name02">授信额度高</li>
+<li class="name02">期限长久</li>
+<li class="name02">贷款门槛低</li>
+</ul>
+</div>
+<div id="Anniu1">
+<input type="submit" name="submit" value="申请贷款" class="anniu1">
+</div>
+<div id="linkdk01">
+<a href="http://www.w3school.com.cn/" class="godaikuan">去贷款&gt&gt</a>
+</div>
+</div>
+<div id="item2">
+<ul>
+<li class="name01">分期融</li>
+</ul>
+<div id="Name2">
+<ul>
+<li class="name02">贷款期限灵活</li>
+<li class="name02">利率多样</li>
+<li class="name02">申请容易</li>
+<li class="name02">额度高</li>
+</ul>
+</div>
+<div id="Anniu2">
+<input type="submit" name="submit" value="申请贷款" class="anniu1">
+</div>
+<div id="linkdk02">
+<a href="http://www.w3school.com.cn/" class="godaikuan">去贷款&gt&gt</a>
+</div>
+</div>
+<div id="item3">
+<ul>
+<li class="name01">分期融</li>
+</ul>
+<div id="Name3">
+<ul>
+<li class="name02">贷款期限灵活</li>
+<li class="name02">利率多样</li>
+<li class="name02">申请容易</li>
+<li class="name02">额度高</li>
+</ul>
+</div>
+<div id="Anniu3">
+<input type="submit" name="submit" value="申请贷款" class="anniu1">
+</div>
+<div id="linkdk03">
+<a href="http://www.w3school.com.cn/" class="godaikuan">去贷款&gt&gt</a>
+</div>
+</div>
+<div id="daikuan">贷款</div>
+<div id="km1">
+<a href="http://www.w3school.com.cn/" class="km001">了解更多&gt&gt</a>
+</div>
+</div>
+<div class="insurance">
+  <div class="left"><img src="img/A1_01.jpg" /><a href="#" target="_blank">了解更多&gt&gt</a></div>  
+  <div id="tabbox">
+    <ul class="tabs" id="tabs2">
+       <li type="circle">货运险</li>
+       <li>意外险</li>
+       <li>物流责任险</li>
+       <li>财产综合险</li>
+  </ul>
+    <ul class="tab_conbox" id="tab_conbox2">
+        <li class="tab_con"><a href="#"><img src="img/A1.jpg" /></a></li>            
+        <li class="tab_con"><a href="#"><img src="img/A2.jpg" /></a></li>    
+        <li class="tab_con"><a href="#"><img src="img/A3.jpg" /></a></li>    
+        <li class="tab_con"><a href="#"><img src="img/A4.jpg" /></a></li>
+    </ul>
+</div>
+</div>
+<div id="factor">
+<div id="sentence1">物流行业保理是指物流企业将其对客户的应收账款转让给保理商，由保理商为物流企业提供信用风险担保或融资，同时提供应收账款集中代收付、银行卡收单、账户资金归集等服务。传化物流保理致力于为传化公路港内物流企业提供优质的金融增值服务，通过受让应收账款来解决物流公司融资难的痛点，实现一次授信、资金循环使用，从而与物流企业形成“物流+金融”的紧密合作伙伴关系。</div>
+<div id="baoli">贷款</div>
+</div>
+<div id="supply">
+<div id="gongying">供应链</div>
+<div id="sentence2">       将企业物流、家庭物流、非营利机构物流以及绿色物流整合起来，我们可将之称为完全物流链或完全供应链。简单来说物流供应链可以理解为一条有机的物流链条，从产品或服务市场需求开始，到满足需求为止的时间范围内所从事的经济活动中所有涉及到的物流活动的部分所形成的链条。功能健全的物流链最理想的状态便是绿色物流。</div>
+<div id="lx1">家庭物流</div>
+<div id="lx2">企业物流</div>
+<div id="lx3">非盈利机构物流</div>
+<div id="lx4">绿色物流</div>
+<div id="km3">
+<a href="http://www.w3school.com.cn/" class="km003">了解更多&gt&gt</a>
+</div>
+</div>
+<div id="block01">金融社区</div>
+<div id="xuanch">
+<div id="xh1"><img src="img/advertise.jpg" width="220" height="145" alt=""/>
+<div id="ad01">传化保险超市上线啦</div><div id="ad001">银行围绕核心企业，管理上下游中小企业的资金流和物流，并把单个企业的不可控风险转变为供应链企业整体的可控风险，通过立体获取各类信息，将风险控制在最低的金融服务</div>
+</div>
+<div id="xh2"><img src="img/advertise.jpg" width="220" height="145" alt=""/>
+<div id="ad02">传化保险超市上线啦</div><div id="ad002">传化保险超市上线啦传化保险超市上线
+保险超市上线啦</div>
+</div>
+<div id="xh3"><img src="img/advertise.jpg" width="220" height="145" alt=""/>
+<div id="ad03">传化保险超市上线啦</div><div id="ad003">银行围绕核心企业，管理上下游中小企业的资金流和物流，并把单个企业的不可控风险转变为供应链企业整体的可控风险，通过立体获取各类信息，将风险控制在最低的金融服务</div>
+</div>
+<div id="xh4"><img src="img/advertise.jpg" width="220" height="145" alt=""/>
+<div id="ad04">传化保险超市上线啦</div><div id="ad004">传化保险超市上线啦传化保险超市上线
+保险超市上线啦</div>
+</div>
+</div>
+<div id="block02">
+<div id="exp">
+<div id="lb1"></div>
+<div id="lbs1"><a href="http://www.w3school.com.cn/">【保险知识】如何投保货物运输保险？</a></div>
+<div id="lb2"></div>
+<div id="lbs2"><a href="http://www.w3school.com.cn/">【保险知识】如何申请传化金融小贷？</a></div>
+<div id="lb3"></div>
+<div id="lbs3"><a href="http://www.w3school.com.cn/">【案例分享】如何进行赔偿处理？</a></div>
+</div>
+<div id="Exp">
+<div id="lb4"></div>
+<div id="lbs4"><a href="http://www.w3school.com.cn/">【保理知识】如何使用传化供应链金融保理?</a></div>
+</div>
+</div>
+<div id="footer">
+<div id="foot1">
+<a href="../../../面试/FIT1012/week07/index2.html">关于传化金融</a><font color="gray" >|</font>
+<a href="../../../面试/FIT1012/week07/index2.html">联系方式</a><font color="gray" >|</font>
+<a href="../../../面试/FIT1012/week07/index2.html">帮助中心</a>
+</div>
+<div id="foot2">
+<a href="../../../面试/FIT1012/week07/index2.html">传化版权所有 2015 浙ICP证123456号 2015 Transfar 使用易配货前必读</a>
+</div>
+</div>
+</body>
+</html>
